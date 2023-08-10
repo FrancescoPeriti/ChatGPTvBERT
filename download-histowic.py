@@ -161,9 +161,9 @@ s2_gold = np.array(s2_gold)[idx]
 percentage = 0.6
 n_train = int(len(s1_labels) * percentage)
 
-percentage = 0.2
-n_dev = int(len(s1_labels) * percentage)
-n_test = n_dev
+percentage = 0.01
+n_trial = int(len(s1_labels) * percentage)
+n_test = len(s1_labels) - n_trial - n_train
 
 ## Train set
 # wrapper for processed data
@@ -195,7 +195,7 @@ with open('data/HistoWiC/test.txt', mode='w', encoding='utf-8') as f:
 with open('data/GradedHistoWiC/test.txt', mode='w', encoding='utf-8') as f:
     f.writelines(data_gold)
 
-## Dev set
+## trial set
 # wrapper for processed data
 data_labels, data_gold = list(), list()
 for i in range(n_train+n_test, len(s1_labels)):
@@ -205,9 +205,9 @@ for i in range(n_train+n_test, len(s1_labels)):
     data_gold.append(json.dumps(s2_gold[i])+'\n')
 
 # store data
-with open('data/HistoWiC/dev.txt', mode='w', encoding='utf-8') as f:
+with open('data/HistoWiC/trial.txt', mode='w', encoding='utf-8') as f:
     f.writelines(data_labels)
-with open('data/GradedHistoWiC/dev.txt', mode='w', encoding='utf-8') as f:
+with open('data/GradedHistoWiC/trial.txt', mode='w', encoding='utf-8') as f:
     f.writelines(data_gold)
 
 # remove zenodo directory
