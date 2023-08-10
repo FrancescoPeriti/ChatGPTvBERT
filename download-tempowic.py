@@ -9,6 +9,7 @@ subprocess.run("git clone https://github.com/cardiffnlp/TempoWiC.git", shell=Tru
 
 # rename test filename
 os.rename('TempoWiC/data/test.gold.tsv', 'TempoWiC/data/test.labels.tsv')
+os.rename('TempoWiC/data/trial.gold.tsv', 'TempoWiC/data/trial.labels.tsv')
 os.rename('TempoWiC/data/test-codalab-10k.data.jl', 'TempoWiC/data/test.data.jl')
 
 # create folder
