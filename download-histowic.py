@@ -31,6 +31,8 @@ s2_gold = list() # second sentence list with continuous score
 s1_labels = list() # first sentence list with binary score
 s2_labels = list() # second sentence list with binary score
 
+# identifier
+idx=0
 for f_j, f_u in zip(Path(f'dwug_en_tmp/data/').glob('**/judgments.csv'), Path(f'dwug_en_tmp/data/').glob('**/uses.csv')):
     # File judgment, File uses
     f_j, f_u = str(f_j), str(f_u)
@@ -133,22 +135,24 @@ for f_j, f_u in zip(Path(f'dwug_en_tmp/data/').glob('**/judgments.csv'), Path(f'
         if uses_dict[identifier1]['grouping'] == uses_dict[identifier2]['grouping']:
             continue
 
-        s1_labels.append(dict(lemma=lemma, token=token1,
+        s1_labels.append(dict(id=idx, lemma=lemma, token=token1,
                        start=start1, end=end1,
                        pos=pos1,
                        sentence=sent1, gold=label1))
-        s2_labels.append(dict(lemma=lemma, token=token2,
+        s2_labels.append(dict(id=idx, lemma=lemma, token=token2,
                        start=start2, end=end2,
                        pos=pos2,
                        sentence=sent2, gold=label2))
-        s1_gold.append(dict(lemma=lemma, token=token1,
+        s1_gold.append(dict(id=idx, lemma=lemma, token=token1,
                        start=start1, end=end1,
                        pos=pos1,
                        sentence=sent1, gold=gold1))
-        s2_gold.append(dict(lemma=lemma, token=token2,
+        s2_gold.append(dict(id=idx, lemma=lemma, token=token2,
                        start=start2, end=end2,
                        pos=pos2,
                        sentence=sent2, gold=gold2))
+        # new id 
+        idx+=1
 
 idx = list(range(0, len(s1_labels)))
 random.shuffle(idx)
@@ -164,6 +168,8 @@ n_train = int(len(s1_labels) * percentage)
 percentage = 0.01
 n_trial = int(len(s1_labels) * percentage)
 n_test = len(s1_labels) - n_trial - n_train
+
+print(f'# Train: {n_train}, # Test: {n_test}, # Trial: {n_trial}')
 
 ## Train set
 # wrapper for processed data
@@ -195,7 +201,7 @@ with open('data/HistoWiC/test.txt', mode='w', encoding='utf-8') as f:
 with open('data/GradedHistoWiC/test.txt', mode='w', encoding='utf-8') as f:
     f.writelines(data_gold)
 
-## trial set
+## Trial set
 # wrapper for processed data
 data_labels, data_gold = list(), list()
 for i in range(n_train+n_test, len(s1_labels)):
@@ -211,5 +217,5 @@ with open('data/GradedHistoWiC/trial.txt', mode='w', encoding='utf-8') as f:
     f.writelines(data_gold)
 
 # remove zenodo directory
-shutil.rmtree("dwug_ed_tmp")
+shutil.rmtree("dwug_en_tmp")
 os.remove('dwug_en.zip?download=1')
