@@ -11,10 +11,10 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(prog='Bot interacting with ChatGPT demo', add_help=True)
     parser.add_argument('-d', '--dataset',
                         type=str,
-                        help='Directory containing Lexical Replacement datasets')
+                        help='Specifies the dataset for the analysis.')
     parser.add_argument('-p', '--prompt',
                         type=str,
-                        help='Directory containing Lexical Replacement datasets')
+                        help='Specifies the prompt for the analysis.')
     args = parser.parse_args()
 
     print("The script is designed to control both your keyboard and mouse, "
