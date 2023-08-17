@@ -1,3 +1,11 @@
+Download data and generate prompts
+```bash
+python download-histowic.py
+python download-tempowic.py
+python generate-prompts.py
+```
+
+# ChatGPT - WebInterface
 ```bash
 python bot4chatgpt.py -d [dataset] -p [prompt]
 ```
@@ -18,3 +26,5 @@ where
         fsp - Few-shot prompting
         tp - Trained prompting
 ```
+
+# ChatGPT - API
