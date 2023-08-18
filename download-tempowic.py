@@ -25,7 +25,8 @@ for folder in sets:
     data = pd.read_json(f'TempoWiC/data/{folder}.data.jl', lines=True)
     
     # join dataframes
-    data = data.merge(labels, on='id')    
+    data = data.merge(labels, on='id')
+    data = data.sample(n=min(200, data.shape[0]), random_state=42)    
     
     if folder == 'validation':
         folder = 'dev'
