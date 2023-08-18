@@ -28,3 +28,9 @@ where
 ```
 
 # ChatGPT - API
+
+# BERT
+```bash
+python store-target-embeddings.py -d data/HistoWiC/ --model bert-base-uncased --batch_size 16 --train_set --test_set --use_gpu
+python store-target-embeddings.py -d data/TempoWiC/ --model bert-base-uncased --batch_size 16 --train_set --test_set --use_gpu
+```
