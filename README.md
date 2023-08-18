@@ -34,3 +34,20 @@ where
 python store-target-embeddings.py -d data/HistoWiC/ --model bert-base-uncased --batch_size 16 --train_set --test_set --use_gpu
 python store-target-embeddings.py -d data/TempoWiC/ --model bert-base-uncased --batch_size 16 --train_set --test_set --use_gpu
 ```
+
+```bash
+mv data/HistoWiC/target_embeddings/bert-base-uncased/train/ data/HistoWiC/target_embeddings/bert-base-uncased/dev/
+mv data/TempoWiC/target_embeddings/bert-base-uncased/train/ data/TempoWiC/target_embeddings/bert-base-uncased/dev/
+cp data/TempoWiC/train.txt data/TempoWiC/dev.txt
+cp data/HistoWiC/train.txt data/HistoWiC/dev.txt
+```
+
+```bash
+python bert-wic-stats.py -d data/TempoWiC -m bert-base-uncased --test_set --dev_set
+python bert-wic-stats.py -d data/HistoWiC -m bert-base-uncased --test_set --dev_set
+```
+```python
+import pandas as pd
+pd.read_csv('data/HistoWiC/wic_stats.tsv', sep='\t')
+pd.read_csv('data/TempoWiC/wic_stats.tsv', sep='\t')
+```
