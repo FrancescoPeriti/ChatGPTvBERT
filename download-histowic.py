@@ -2,10 +2,9 @@ import os
 import json
 import string
 import random
-import numpy as np
-import pandas as pd
-import subprocess
 import shutil
+import subprocess
+import numpy as np
 from pathlib import Path
 from collections import defaultdict
 
@@ -156,6 +155,8 @@ for f_j, f_u in zip(Path(f'dwug_en_tmp/data/').glob('**/judgments.csv'), Path(f'
 
 idx = list(range(0, len(s1_labels)))
 random.shuffle(idx)
+idx = idx[:400]
+
 s1_labels = np.array(s1_labels)[idx]
 s2_labels = np.array(s2_labels)[idx]
 
@@ -165,7 +166,7 @@ s2_gold = np.array(s2_gold)[idx]
 percentage = 0.6
 n_train = int(len(s1_labels) * percentage)
 
-percentage = 0.01
+percentage = 0.05
 n_trial = int(len(s1_labels) * percentage)
 n_test = len(s1_labels) - n_trial - n_train
 
