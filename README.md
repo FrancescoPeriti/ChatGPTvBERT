@@ -17,10 +17,10 @@ python bot4chatgpt.py -d HistoWiC -p MSp
 
 # ChatGPT - API
 ```bash
-python chatgpt-api.py -a your_api -d TempoWiC -p zsp -o result
-python chatgpt-api.py -a your_api -d TempoWiC -p fsp -o result
-python chatgpt-api.py -a your_api -d HistoWiC -p zsp -o result
-python chatgpt-api.py -a your_api -d HistoWiC -p fsp -o result
+python chatgpt-api.py -a your_api -d TempoWiC -p zsp 
+python chatgpt-api.py -a your_api -d TempoWiC -p fsp 
+python chatgpt-api.py -a your_api -d HistoWiC -p zsp 
+python chatgpt-api.py -a your_api -d HistoWiC -p fsp 
 ```
 
 # BERT
