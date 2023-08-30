@@ -42,10 +42,6 @@ def check_end(dataset, prompt):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(prog='ChatGPT prompting', add_help=True)
     parser.add_argument('-f')
-    parser.add_argument('-t', '--temperature',
-                        type=float,
-                        default=0.2,
-                        help='Temperature')
     parser.add_argument('-a', '--api',
                         type=str,
                         default='your_api',
