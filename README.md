@@ -7,27 +7,21 @@ python generate-prompts.py
 
 # ChatGPT - WebInterface
 ```bash
-python bot4chatgpt.py -d [dataset] -p [prompt]
-```
-where
-```
--d --dataset [dataset]
-    Specifies the dataset for the analysis.
-
-    Options:
-        TempoWiC - Temporal Word-in-Context
-        HistoWiC - Historical Word-in-Context
-
--p --prompt [prompt]
-    Specifies the prompt for the analysis.
-
-    Options:
-        zsp - Zero-shot prompting
-        fsp - Few-shot prompting
-        tp - Trained prompting
+python bot4chatgpt.py -d TempoWiC -p ZSp
+python bot4chatgpt.py -d TempoWiC -p FSp
+python bot4chatgpt.py -d TempoWiC -p MSp
+python bot4chatgpt.py -d HistoWiC -p ZSp
+python bot4chatgpt.py -d HistoWiC -p FSp
+python bot4chatgpt.py -d HistoWiC -p MSp
 ```
 
 # ChatGPT - API
+```bash
+python chatgpt-api.py -a your_api -d TempoWiC -p zsp -o result
+python chatgpt-api.py -a your_api -d TempoWiC -p fsp -o result
+python chatgpt-api.py -a your_api -d HistoWiC -p zsp -o result
+python chatgpt-api.py -a your_api -d HistoWiC -p fsp -o result
+```
 
 # BERT
 ```bash
