@@ -54,10 +54,6 @@ if __name__ == '__main__':
                         type=str,
                         default='zsp',
                         help='Specifies the prompt for the analysis')
-    parser.add_argument('-o', '--output',
-                        type=str,
-                        default='result',
-                        help='Output folder')
     args = parser.parse_args()
 
     openai.api_key_path = args.api
