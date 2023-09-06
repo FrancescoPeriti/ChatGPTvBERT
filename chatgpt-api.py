@@ -74,38 +74,43 @@ if __name__ == '__main__':
             temperature = round(temperature, 1)
             if os.path.exists(f'chatgpt-conversations/{args.dataset}/{args.prompt}/{temperature}.json'):
                 continue
-            try:
-                history = [first_message]
-                gold_count = 0
-                with open(f'prompt-data/{args.dataset}/{args.prompt}.txt', mode='r', encoding='utf-8') as f:
-                    for line in tqdm(list(f)):
-                        line = line.replace('##newline##', '\n').replace('_vb', '').replace('_nn', '')
-                        tmp = {"role": "user", "content": line}
-                        history.append(tmp)
+            
+            history = [first_message]
+            gold_count = 0
+            with open(f'prompt-data/{args.dataset}/{args.prompt}.txt', mode='r', encoding='utf-8') as f:
+                for line in tqdm(list(f)):
+                    line = line.replace('##newline##', '\n').replace('_vb', '').replace('_nn', '')
+                    tmp = {"role": "user", "content": line}
+                    history.append(tmp)
 
-                        # if tmp != nnnn[-1]:
-                        #    continue
-                        # history = nnnn
+                    # if tmp != nnnn[-1]:
+                    #    continue
+                    # history = nnnn
 
-                        # avoid model's maximum context length is 4097 tokens
-                        tmp_history = history[:end] + history[start:]
+                    # avoid model's maximum context length is 4097 tokens
+                    tmp_history = history[:end] + history[start:]
 
-                        answer = {"role": "assistant", "content": input_prompt(tmp_history, temperature)}
-                        history.append(answer)
+                    error = True
+                    while error:
+                        try:
+                            content_ = input_prompt(tmp_history, temperature)
+                            wait_random_time()
+                        except:
+                            continue
+                        error = False
+                    answer = {"role": "assistant", "content": content_}
+                    history.append(answer)
 
-                        if line.startswith("Now it's your turn"):
-                            gold_count += 1
+                    if line.startswith("Now it's your turn"):
+                        gold_count += 1
 
-                        # avoid rate limit of tokens per min. Limit: 90000 / min
-                        if len(history) % 45 == 0:
-                            time.sleep(wait_random_time())
+                    # avoid rate limit of tokens per min. Limit: 90000 / min
+                    if len(history) % 45 == 0:
+                        time.sleep(wait_random_time())
 
 
-                Path(f'chatgpt-conversations/{args.dataset}/{args.prompt}/').mkdir(exist_ok=True, parents=True)
-                with open(f'chatgpt-conversations/{args.dataset}/{args.prompt}/{temperature}.json', mode='w',
-                          encoding='utf-8') as f:
-                    json.dump(history, f)
-                    print('Done ', temperature)
-            except:
-                print('Fail ', temperature)
-                continue
+            Path(f'chatgpt-conversations/{args.dataset}/{args.prompt}/').mkdir(exist_ok=True, parents=True)
+            with open(f'chatgpt-conversations/{args.dataset}/{args.prompt}/{temperature}.json', mode='w',
+                      encoding='utf-8') as f:
+                json.dump(history, f)
+                print('Done ', temperature)
