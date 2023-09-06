@@ -20,6 +20,12 @@ cat data/TempoWiC/train.txt > data/HistoTempoWiC/train.txt
 cat data/HistoWiC/train.txt >> data/HistoTempoWiC/train.txt
 ```
 
+Download data LSC
+```
+wget https://www2.ims.uni-stuttgart.de/data/sem-eval-ulscd/semeval2020_ulscd_eng.zip
+unzip semeval2020_ulscd_eng.zip
+```
+
 # ChatGPT - WebInterface
 ```bash
 python bot4chatgpt.py -d TempoWiC -p ZSp
