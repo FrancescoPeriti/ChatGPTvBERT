@@ -3,6 +3,19 @@ Download data and generate prompts
 python download-histowic.py
 python download-tempowic.py
 python generate-prompts.py
+
+mkdir prompt-data/HistoTempoWiC
+cat prompt-data/TempoWiC/zsp.txt > prompt-data/HistoTempoWiC/zsp.txt
+tail -n+2 prompt-data/HistoWiC/zsp.txt >> prompt-data/HistoTempoWiC/zsp.txt
+mkdir prompt-data/HistoTempoWiC
+cat prompt-truth/TempoWiC/test.txt >> prompt-truth/HistoTempoWiC/test.txt
+cat prompt-truth/HistoWiC/test.txt >> prompt-truth/HistoTempoWiC/test.txt
+cat prompt-truth/TempoWiC/train.txt >> prompt-truth/HistoTempoWiC/train.txt
+cat prompt-truth/HistoWiC/train.txt >> prompt-truth/HistoTempoWiC/train.txt
+
+mkdir data/HistoTempoWiC
+cat data/TempoWiC/train.txt >> data/HistoTempoWiC/train.txt
+cat data/HistoWiC/train.txt >> data/HistoTempoWiC/train.txt
 ```
 
 # ChatGPT - WebInterface
@@ -20,13 +33,15 @@ python bot4chatgpt.py -d HistoWiC -p MSp
 python chatgpt-api.py -a your_api -d TempoWiC -p zsp 
 python chatgpt-api.py -a your_api -d TempoWiC -p fsp 
 python chatgpt-api.py -a your_api -d HistoWiC -p zsp 
-python chatgpt-api.py -a your_api -d HistoWiC -p fsp 
+python chatgpt-api.py -a your_api -d HistoWiC -p fsp
+python chatgpt-api.py -a your_api -d HistoTempoWiC -p zsp  
 ```
 
 # BERT
 ```bash
 python store-target-embeddings.py -d data/HistoWiC/ --model bert-base-uncased --batch_size 16 --train_set --test_set --use_gpu
 python store-target-embeddings.py -d data/TempoWiC/ --model bert-base-uncased --batch_size 16 --train_set --test_set --use_gpu
+python store-target-embeddings.py -d data/HistoTempoWiC/ --model bert-base-uncased --batch_size 16 --train_set --test_set --use_gpu
 ```
 
 ```bash
