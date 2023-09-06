@@ -8,13 +8,15 @@ mkdir prompt-data/HistoTempoWiC
 cat prompt-data/TempoWiC/zsp.txt > prompt-data/HistoTempoWiC/zsp.txt
 tail -n+2 prompt-data/HistoWiC/zsp.txt >> prompt-data/HistoTempoWiC/zsp.txt
 mkdir prompt-data/HistoTempoWiC
-cat prompt-truth/TempoWiC/test.txt >> prompt-truth/HistoTempoWiC/test.txt
+cat prompt-truth/TempoWiC/test.txt > prompt-truth/HistoTempoWiC/test.txt
 cat prompt-truth/HistoWiC/test.txt >> prompt-truth/HistoTempoWiC/test.txt
-cat prompt-truth/TempoWiC/train.txt >> prompt-truth/HistoTempoWiC/train.txt
+cat prompt-truth/TempoWiC/train.txt > prompt-truth/HistoTempoWiC/train.txt
 cat prompt-truth/HistoWiC/train.txt >> prompt-truth/HistoTempoWiC/train.txt
 
 mkdir data/HistoTempoWiC
-cat data/TempoWiC/train.txt >> data/HistoTempoWiC/train.txt
+cat data/TempoWiC/test.txt > data/HistoTempoWiC/test.txt
+cat data/HistoWiC/test.txt >> data/HistoTempoWiC/test.txt
+cat data/TempoWiC/train.txt > data/HistoTempoWiC/train.txt
 cat data/HistoWiC/train.txt >> data/HistoTempoWiC/train.txt
 ```
 
@@ -47,13 +49,16 @@ python store-target-embeddings.py -d data/HistoTempoWiC/ --model bert-base-uncas
 ```bash
 mv data/HistoWiC/target_embeddings/bert-base-uncased/train/ data/HistoWiC/target_embeddings/bert-base-uncased/dev/
 mv data/TempoWiC/target_embeddings/bert-base-uncased/train/ data/TempoWiC/target_embeddings/bert-base-uncased/dev/
+mv data/HistoTempoWiC/target_embeddings/bert-base-uncased/train/ data/HistoTempoWiC/target_embeddings/bert-base-uncased/dev/
 cp data/TempoWiC/train.txt data/TempoWiC/dev.txt
 cp data/HistoWiC/train.txt data/HistoWiC/dev.txt
+cp data/HistoTempoWiC/train.txt data/HistoTempoWiC/dev.txt
 ```
 
 ```bash
 python bert-wic-stats.py -d data/TempoWiC -m bert-base-uncased --test_set --dev_set
 python bert-wic-stats.py -d data/HistoWiC -m bert-base-uncased --test_set --dev_set
+python bert-wic-stats.py -d data/HistoTempoWiC -m bert-base-uncased --test_set --dev_set
 ```
 ```python
 import pandas as pd
