@@ -60,9 +60,9 @@ if __name__ == '__main__':
 
     # set sliding window boundaries
     if args.prompt == 'zsp':
-        end, start = 2, -30 
+        end, start = 3, -30 
     elif args.prompt == 'fsp':
-        end, start = 27, -5
+        end, start = 28, -5
 
     first_message = {"role": "system", "content": start_content}
 
