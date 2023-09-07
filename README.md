@@ -45,6 +45,11 @@ python chatgpt-api.py -a your_api -d HistoWiC -p fsp
 python chatgpt-api.py -a your_api -d HistoTempoWiC -p zsp  
 ```
 
+LSC
+```bash
+python chatgpt-api-LSC.py
+```
+
 # BERT
 ```bash
 python store-target-embeddings.py -d data/HistoWiC/ --model bert-base-uncased --batch_size 16 --train_set --test_set --use_gpu
