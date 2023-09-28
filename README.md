@@ -1,6 +1,7 @@
 # ChatGPT v BERT: Dawn of Justice for _Semantic Change Detection_
 <p align="center">
   <img src="ChatGPTvBERT-meme.png" width="35%" height="35%"/>
+  <figcaption>Figure 1: The title of this paper draws inspiration by the movie <i>Batman v Superman: Dawn of Justice</i>. In this paper, we leverage the analogy of ChatGPT and BERT, powerful and popular PFMs, as two <i>lexical superheroes</i> often erroneously associated for solving similar problems. Our aim is to shed lights on the potential of ChatGPT and dispel the expanding belief that ChatGPT renders BERT an outdated technology</figcaption>
 </p>
 
 Download data and generate prompts
