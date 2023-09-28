@@ -11,6 +11,7 @@ This is the official repository for our paper _Studying Word Meaning Evolution t
 - [Abstract](#abstract)
 - [ChatGPT Conversations](#chatgpt-conversations)
 - [Getting Started](#getting-started)
+- [Reproducing Results](#reproducing-results)
 - [References](#references)
 
 ## Abstract
@@ -76,8 +77,10 @@ To install the required packages, you can use pip:
 ```bash
 pip install -r requirements.txt
 ```
+## Reproducing Results
+<b>Data</b>
 
-Download data and generate prompts
+- Download data and generate prompts
 ```bash
 python download-histowic.py
 python download-tempowic.py
@@ -99,13 +102,16 @@ cat data/TempoWiC/train.txt > data/HistoTempoWiC/train.txt
 cat data/HistoWiC/train.txt >> data/HistoTempoWiC/train.txt
 ```
 
-Download data LSC
+- Download data for Lexical Semantic Change detection (LSC)
 ```
 wget https://www2.ims.uni-stuttgart.de/data/sem-eval-ulscd/semeval2020_ulscd_eng.zip
 unzip semeval2020_ulscd_eng.zip
 ```
 
-# ChatGPT - WebInterface
+<b>ChatGPT - WebInterface</b>
+
+- Utilize the <i>bot4chatgpt</i> bot to chat with ChatGPT through the OpenAI GUI. Follow the instructions provided by the script.
+
 ```bash
 python bot4chatgpt.py -d TempoWiC -p ZSp
 python bot4chatgpt.py -d TempoWiC -p FSp
@@ -115,7 +121,11 @@ python bot4chatgpt.py -d HistoWiC -p FSp
 python bot4chatgpt.py -d HistoWiC -p MSp
 ```
 
-# ChatGPT - API
+<b>ChatGPT - API</b>
+
+- Create a file named 'your_api' containing your OpenAI API token.
+- Chat with ChatGPT through the OpenAI API using various prompts and temperature settings. Execute the following commands (each run will test different temperature values):
+  
 ```bash
 python chatgpt-api.py -a your_api -d TempoWiC -p zsp 
 python chatgpt-api.py -a your_api -d TempoWiC -p fsp 
@@ -124,18 +134,23 @@ python chatgpt-api.py -a your_api -d HistoWiC -p fsp
 python chatgpt-api.py -a your_api -d HistoTempoWiC -p zsp  
 ```
 
-LSC
+<b>Lexical Semantic Change (LSC)</b>
+
+- Test the knowledge of ChatGPT on historical semantic changes.
 ```bash
 python chatgpt-api-LSC.py
 ```
 
-# BERT
+<b>BERT</b>
+
+- Extract embeddings
 ```bash
 python store-target-embeddings.py -d data/HistoWiC/ --model bert-base-uncased --batch_size 16 --train_set --test_set --use_gpu
 python store-target-embeddings.py -d data/TempoWiC/ --model bert-base-uncased --batch_size 16 --train_set --test_set --use_gpu
 python store-target-embeddings.py -d data/HistoTempoWiC/ --model bert-base-uncased --batch_size 16 --train_set --test_set --use_gpu
 ```
 
+- Run the following commands to use Train as Dev set (to find optimal threshold)
 ```bash
 mv data/HistoWiC/target_embeddings/bert-base-uncased/train/ data/HistoWiC/target_embeddings/bert-base-uncased/dev/
 mv data/TempoWiC/target_embeddings/bert-base-uncased/train/ data/TempoWiC/target_embeddings/bert-base-uncased/dev/
@@ -144,17 +159,23 @@ cp data/TempoWiC/train.txt data/TempoWiC/dev.txt
 cp data/HistoWiC/train.txt data/HistoWiC/dev.txt
 cp data/HistoTempoWiC/train.txt data/HistoTempoWiC/dev.txt
 ```
-
+- Compute BERT stats on Test set
 ```bash
 python bert-wic-stats.py -d data/TempoWiC -m bert-base-uncased --test_set --dev_set
 python bert-wic-stats.py -d data/HistoWiC -m bert-base-uncased --test_set --dev_set
 python bert-wic-stats.py -d data/HistoTempoWiC -m bert-base-uncased --test_set --dev_set
 ```
+
+- Explore statistics
 ```python
 import pandas as pd
 pd.read_csv('data/HistoWiC/wic_stats.tsv', sep='\t')
 pd.read_csv('data/TempoWiC/wic_stats.tsv', sep='\t')
 ```
+
+<b>Plots</b>
+
+- Run the <i>ChatGPTvBERT.ipynb</i> notebook.
 
 ### References
 
