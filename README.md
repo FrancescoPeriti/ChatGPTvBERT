@@ -1,3 +1,8 @@
+# ChatGPT v BERT: Dawn of Justice for _Semantic Change Detection_
+<p align="center">
+  <img src="ChatGPTvBERT-meme.png" width="35%" height="35%"/>
+</p>
+
 Download data and generate prompts
 ```bash
 python download-histowic.py
