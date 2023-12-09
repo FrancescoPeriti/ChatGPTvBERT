@@ -1,5 +1,5 @@
 # ChatGPT v BERT: Dawn of Justice for _Semantic Change Detection_
-This is the official repository for our paper _Studying Word Meaning Evolution through Incremental Semantic Shift Detection: A Case Study of Italian Parliamentary Speeches_
+This is the official repository for our paper _ChatGPT v BERT: Dawn of Justice for _Semantic Change Detection_
 
 <p align="center">
   <img src="ChatGPTvBERT-meme.png" width="35%" height="35%"/>
