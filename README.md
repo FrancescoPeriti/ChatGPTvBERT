@@ -198,7 +198,9 @@ Coming....
     abstract = "[...]",
 }
 ```
+
 Temporary...
+```
 @Misc{periti2024chatgpt,
   title = {{(Chat)GPT v BERT: Dawn of Justice for Semantic Change Detection}}, 
   author = {Periti, Francesco and Dubossarsky, Haim and Tahmasebi, Nina},
@@ -208,7 +210,7 @@ Temporary...
   primaryClass = {cs.CL},
   url = {https://arxiv.org/abs/2401.14040}
 }
-
+```
 
 ```
 @Misc{montanelli2023survey,
