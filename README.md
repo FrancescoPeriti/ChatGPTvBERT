@@ -7,7 +7,7 @@ This is the official repository for our paper **(Chat)GPT v BERT: Dawn of Justic
 aim is to shed lights on the potential of (Chat)GPT for semantic change detection.</figcaption>
 </p>
 
-<b> NOTE: </b> We are sorry to inform you that, after publication, we discovered an error in the code that led us to compare ChatGPT via the web interface with ChatGPT via the API instead of comparing it with the foundational GPT model.
+<b> ❗❗❗ NOTE: ❗❗❗ </b> We are sorry to inform you that, after publication, we discovered an error in the code that led us to compare ChatGPT via the web interface with ChatGPT via the API instead of comparing it with the foundational GPT model.
 
 ## Table of Contents
 
