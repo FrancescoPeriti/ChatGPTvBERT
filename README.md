@@ -7,6 +7,8 @@ This is the official repository for our paper **(Chat)GPT v BERT: Dawn of Justic
 aim is to shed lights on the potential of (Chat)GPT for semantic change detection.</figcaption>
 </p>
 
+<b> Note: </b> We are sorry to inform you that, after publication, we discovered an error in the code that led us to compare ChatGPT via the web interface with ChatGPT via the API instead of comparing it with the foundational GPT model.
+
 ## Table of Contents
 
 - [Abstract](#abstract)
@@ -180,42 +182,18 @@ pd.read_csv('data/TempoWiC/wic_stats.tsv', sep='\t')
 
 ### References
 
-Coming....
-```
-@inproceedings{periti2022chatgPT,
-    title = {{ChatGPT v BERT: Dawn of Justice for Semantic Change Detection}},
-    author = "Periti, Francesco  and
-              Dubossarsky, Haim  and
-              Tahmasebi, Nina",
-    booktitle = "Proceedings of [...]",
-    month = [...],
-    year = "[...]",
-    address = "[...]",
-    publisher = "Association for Computational Linguistics",
-    url = "[...]",
-    doi = "[...]",
-    pages = "[...]",
-    abstract = "[...]",
-}
-```
-
-Temporary...
 ```
 @inproceedings{periti-etal-2024-chat,
-    title = "(Chat){GPT} v {BERT} Dawn of Justice for Semantic Change Detection",
-    author = "Periti, Francesco  and
-      Dubossarsky, Haim  and
-      Tahmasebi, Nina",
-    editor = "Graham, Yvette  and
-      Purver, Matthew",
+    title = {{(Chat)GPT v BERT Dawn of Justice for Semantic Change Detection}},
+    author = "Periti, Francesco  and Dubossarsky, Haim  and Tahmasebi, Nina",
+    editor = "Graham, Yvette  and Purver, Matthew",
     booktitle = "Findings of the Association for Computational Linguistics: EACL 2024",
     month = mar,
     year = "2024",
     address = "St. Julian{'}s, Malta",
     publisher = "Association for Computational Linguistics",
     url = "https://aclanthology.org/2024.findings-eacl.29",
-    pages = "420--436",
-    abstract = "In the universe of Natural Language Processing, Transformer-based language models like BERT and (Chat)GPT have emerged as lexical superheroes with great power to solve open research problems. In this paper, we specifically focus on the temporal problem of semantic change, and evaluate their ability to solve two diachronic extensions of the Word-in-Context (WiC) task: TempoWiC and HistoWiC. In particular, we investigate the potential of a novel, off-the-shelf technology like ChatGPT (and GPT) 3.5 compared to BERT, which represents a family of models that currently stand as the state-of-the-art for modeling semantic change. Our experiments represent the first attempt to assess the use of (Chat)GPT for studying semantic change. Our results indicate that ChatGPT performs significantly worse than the foundational GPT version. Furthermore, our results demonstrate that (Chat)GPT achieves slightly lower performance than BERT in detecting long-term changes but performs significantly worse in detecting short-term changes.",
+    pages = "420--436"
 }
 ```
 
