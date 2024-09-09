@@ -198,13 +198,23 @@ pd.read_csv('data/TempoWiC/wic_stats.tsv', sep='\t')
 ```
 
 ```
-@Misc{montanelli2023survey,
-  title = {{A Survey on Contextualised Semantic Shift Detection}}, 
-  author = {Stefano Montanelli and Francesco Periti},
-  year = {2023},
-  eprint = {2304.01666},
-  archivePrefix = {arXiv},
-  primaryClass = {cs.CL},
-  url = {https://arxiv.org/abs/2304.01666}
+@Article{periti2024montanelli,
+author = {Periti, Francesco and Montanelli, Stefano},
+title = {{Lexical Semantic Change through Large Language Models: a Survey}},
+year = {2024},
+issue_date = {November 2024},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {56},
+number = {11},
+issn = {0360-0300},
+url = {https://doi.org/10.1145/3672393},
+doi = {10.1145/3672393},
+abstract = {Lexical Semantic Change (LSC) is the task of identifying, interpreting, and assessing the possible change over time in the meanings of a target word. Traditionally, LSC has been addressed by linguists and social scientists through manual and time-consuming analyses, which have thus been limited in terms of the volume, genres, and time-frame that can be considered. In recent years, computational approaches based on Natural Language Processing have gained increasing attention to automate LSC as much as possible. Significant advancements have been made by relying on Large Language Models (LLMs), which can handle the multiple usages of the words and better capture the related semantic change. In this article, we survey the approaches based on LLMs for LSC, and we propose a classification framework characterized by three dimensions: meaning representation, time-awareness, and learning modality. The framework is exploited to (i) review the measures for change assessment, (ii) compare the approaches on performance, and (iii) discuss the current issues in terms of scalability, interpretability, and robustness. Open challenges and future research directions about the use of LLMs for LSC are finally outlined.},
+journal = {ACM Comput. Surv.},
+month = {jun},
+articleno = {282},
+numpages = {38},
+keywords = {Lexical semantics, lexical semantic change, semantic shift detection, large language models}
 }
 ```
